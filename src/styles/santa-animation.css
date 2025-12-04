@@ -1,0 +1,77 @@
+/* Santa Container - Fixed positioning for flight animation */
+.santa-container {
+    position: fixed;
+    bottom: 25%;
+    left: -40%;
+    width: 40%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Santa Sleigh Animation - Flying from left to right */
+.santa-fly {
+    width: 100%;
+    font-size: 80px;
+    animation: flyAcross 6s linear forwards;
+    filter: drop-shadow(0px 0px 15px rgba(234, 196, 111, 0.8));
+    text-align: center;
+    animation-fill-mode: forwards;
+}
+
+/* Keyframe animation: Left → Right with bounce effect */
+@keyframes flyAcross {
+    0% {
+        left: -40%;
+        transform: translateY(0px) scaleX(1);
+    }
+    10% {
+        transform: translateY(-20px) scaleX(1);
+    }
+    30% {
+        transform: translateY(5px) scaleX(1);
+    }
+    50% {
+        transform: translateY(-10px) scaleX(1);
+    }
+    70% {
+        transform: translateY(3px) scaleX(1);
+    }
+    90% {
+        transform: translateY(-5px) scaleX(1);
+    }
+    100% {
+        left: 120%;
+        transform: translateY(0px) scaleX(1);
+    }
+}
+
+/* Optional: Trail/glow effect */
+.santa-fly::before {
+    content: '';
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(234, 196, 111, 0.3) 0%, transparent 70%);
+    filter: blur(10px);
+}
+
+/* Exact CSS requested by user (keeps IDs and keyframes) */
+#santaContainer {
+    position: fixed;
+    bottom: 22%;
+    left: -50%;
+    width: 45%;
+    z-index: 9999;       /* <-- makes sure it appears above everything */
+    pointer-events: none;
+}
+
+#santaFly {
+    width: 100%;
+}
+
+@keyframes flyAcross {
+    0% { left: -50%; }
+    100% { left: 120%; }
+}

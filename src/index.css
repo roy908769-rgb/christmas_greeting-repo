@@ -1,0 +1,404 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Monsieur+La+Doulaise&family=Outfit:wght@300;400;500&display=swap');
+
+:root {
+  --color-bg-dark: #0a1128;
+  --color-bg-red: #4a0e0e;
+  --color-midnight: #0f172a;
+  --color-gold: #d4af37;
+  --color-gold-light: #f3e5ab;
+  --color-gold-dark: #aa8c2c;
+  --color-white: #ffffff;
+
+  --font-main: 'Playfair Display', serif;
+  --font-header: 'Cinzel', serif;
+  --font-script: 'Pinyon Script', cursive;
+  --font-signature: 'Great Vibes', cursive;
+  --font-calligraphy: 'Monsieur La Doulaise', cursive;
+  --font-clean: 'Outfit', sans-serif;
+
+  --shadow-gold: 0 0 25px rgba(212, 175, 55, 0.3);
+  --shadow-card: 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+
+  --gradient-gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+  --gradient-aurora: linear-gradient(135deg, rgba(0, 128, 128, 0.15), rgba(128, 0, 128, 0.15), rgba(212, 175, 55, 0.15));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: radial-gradient(ellipse at top, #1a1a3e 0%, #0a1128 100%);
+  color: var(--color-white);
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Aurora Background Effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-aurora);
+  opacity: 0.15;
+  animation: aurora 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes aurora {
+
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: translateX(-5%) translateY(-5%);
+  }
+
+  50% {
+    transform: translateX(5%) translateY(5%);
+  }
+
+  75% {
+    transform: translateX(-3%) translateY(3%);
+  }
+}
+
+/* Vignette Effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 3px;
+}
+
+/* Typography */
+.text-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shine 4s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.font-header {
+  font-family: var(--font-header);
+}
+
+.font-signature {
+  font-family: var(--font-signature);
+}
+
+.font-clean {
+  font-family: var(--font-clean);
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Glass Panel with Frosted Effect */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(212, 175, 55, 0.3);
+  border-radius: 24px;
+  box-shadow:
+    var(--shadow-card),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      rgba(212, 175, 55, 0.05) 0%,
+      transparent 50%,
+      rgba(212, 175, 55, 0.05) 100%);
+  border-radius: 24px;
+  pointer-events: none;
+}
+
+/* Buttons */
+.btn-luxury {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-family: var(--font-header);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+}
+
+.btn-luxury::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-gold);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.btn-luxury:hover {
+  color: var(--color-bg-dark);
+  border-color: transparent;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+  transform: scale(1.05) translateY(-2px);
+}
+
+.btn-luxury:hover::before {
+  opacity: 1;
+}
+
+.btn-primary-gold {
+  background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+  border: 1px solid #d4af37;
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(185, 28, 28, 0.4);
+}
+
+.btn-primary-gold:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* Inputs */
+.input-luxury {
+  background: rgba(255, 255, 255, 0.03);
+  border: none;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+  color: var(--color-gold-light);
+  font-family: var(--font-main);
+  font-size: 1.5rem;
+  padding: 12px 0;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.input-luxury:focus {
+  outline: none;
+  border-bottom-color: var(--color-gold);
+  box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.input-luxury::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
+/* Watermark */
+.global-watermark {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-header);
+  color: var(--color-gold);
+  font-size: 0.85rem;
+  opacity: 0.7;
+  z-index: 9999;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.global-watermark::before {
+  content: '⭐';
+  font-size: 0.9rem;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+/* Snow Container */
+.snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Icon Animations */
+@keyframes iconTwinkle {
+
+  0%,
+  90%,
+  100% {
+    opacity: 1;
+  }
+
+  95% {
+    opacity: 0.3;
+  }
+}
+
+.icon-twinkle {
+  animation: iconTwinkle 10s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-once {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(212, 175, 55, 0.3) 50%,
+      transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .glass-panel {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.5rem !important;
+    gap: 2rem !important;
+  }
+
+  .gift-container {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2) !important;
+    padding-right: 0 !important;
+    padding-bottom: 2rem !important;
+    min-height: 300px !important;
+  }
+
+  .input-luxury {
+    font-size: 1.2rem !important;
+  }
+
+  .btn-luxury,
+  .btn-primary-gold {
+    padding: 12px 30px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .global-watermark {
+    bottom: 10px;
+    font-size: 0.7rem;
+  }
+
+  .christmas-card {
+    max-width: 350px !important;
+    padding: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .christmas-card {
+    max-width: 300px !important;
+    padding: 1.5rem !important;
+  }
+
+  .font-calligraphy {
+    font-size: 1.5rem !important;
+  }
+
+  .actions {
+    gap: 0.8rem !important;
+  }
+}
+
+/* Santa sleigh container styles (added per user request) */
+#santaContainer {
+  position: fixed;
+  bottom: 20px;
+  left: -400px;
+  width: 400px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#santaFly {
+  width: 100%;
+  height: auto;
+  display: block;
+}
