@@ -111,8 +111,8 @@ const CardGenerator = () => {
             zIndex: 10
         }}>
             {showSantaAnimation && (
-                <SantaAnimation 
-                    recipientName={formData.name} 
+                <SantaAnimation
+                    recipientName={formData.name}
                     onComplete={() => setShowSantaAnimation(false)}
                 />
             )}
@@ -131,7 +131,6 @@ const CardGenerator = () => {
                             padding: '3rem',
                             maxWidth: '1200px',
                             width: '100%',
-                            overflow: 'hidden',
                             alignItems: 'center'
                         }}
                     >

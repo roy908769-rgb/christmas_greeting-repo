@@ -63,18 +63,15 @@ const WelcomeScreen = ({ onEnter }) => {
             transition={{ duration: 1.5 }}
             onMouseMove={handleMouseMove}
             style={{
-                position: 'fixed',
-                top: 0,
-                left: 0,
+                position: 'relative',
+                minHeight: '100vh',
                 width: '100%',
-                height: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 zIndex: 50,
-                perspective: '1000px',
-                overflow: 'hidden'
+                perspective: '1000px'
             }}
         >
             {/* Background Particles */}
